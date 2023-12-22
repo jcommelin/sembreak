@@ -67,7 +67,7 @@ def semantic_break(sentence, max_line_length=80):
             return (max_line_length - length)**2
 
     # Compute the maximum possible cost
-    max_cost = sum(l**2 for l in lengths)
+    max_cost = sum(cost(i, i+1) for i in range(N))
 
     # Find the optimal break points
     breaks = find_breaks(0, N, cost, max_cost)
